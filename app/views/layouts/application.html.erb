@@ -14,7 +14,14 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
-  </body>
+  <div class="container">
+    <body class="pt-5">
+      <% if notice %>
+        <div class="alert alert-success">
+          <%= notice %>
+        </div>
+      <% end %>
+      <%= yield %>
+    </body>
+  </div>
 </html>
