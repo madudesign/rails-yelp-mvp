@@ -9,20 +9,25 @@ class RestaurantsController < ApplicationController
   end
 
   def new
+    @categories = ["chinese", "italian", "japanese", "french", "belgian"]
     @restaurant = Restaurant.new
   end
 
   def create
     @restaurant = Restaurant.new(user_params)
-    @restaurant.save
+    if @restaurant.save
+      redirect_to restaurant_path(@restaurant), notice: "Your Restaurant has been created!"
+    else
+      render :new
+    end
 
-    redirect_to restaurant_path(@restaurant), notice: "Your Restaurant has been created!"
+
   end
 
   private
 
   def user_params
-     params.require(:restaurant).permit(:name, :address)
+     params.require(:restaurant).permit(:name, :address, :category)
   end
 
 end

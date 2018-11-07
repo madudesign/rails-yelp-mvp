@@ -2,6 +2,7 @@
 
   <h2><%= link_to restaurant.name, restaurant_path(restaurant) %></h2>
   <p><%= restaurant.address %></p>
+  <p><%= restaurant.phone_number %></p>
   <p>Category : <%= restaurant.category %></p>
 <% end %>
 <p><%= link_to "add a restaurant", new_restaurant_path %></p>
